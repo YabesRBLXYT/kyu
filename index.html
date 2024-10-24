@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Tools for Roblox Cloud</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .download-section {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .download-section h3 {
+            margin: 0;
+            padding-bottom: 10px;
+        }
+
+        .download-section button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .download-section button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Download Tools for Roblox Cloud</h1>
+
+        <div class="download-section">
+            <h3>Torrent</h3>
+            <button id="torrent-button">Loading...</button>
+        </div>
+
+      <div class="download-section">
+            <h3>Flud</h3></h3>
+            <button id="flud-button">Loading...</button>
+      </div>
+    </div>
+
+    <script>
+        // Fungsi untuk load link dari file JSON Desu
+        fetch('downloads.json')
+            .then(response => response.json())
+            .then(data => {
+                // Set setiap tombol dengan link yang sesuai dari JSON Desu
+                document.getElementById('torrent-button').innerText = 'Download Torrent';
+                document.getElementById('torrent-button').onclick = () => window.location.href = data.torrent;
+              
+                document.getElementById('flud-button').innerText = 'Download Flud+';
+                document.getElementById('flud-button').onclick = () => window.location.href = data.flud;
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+    </script>
+
+</body>
+      </html>
